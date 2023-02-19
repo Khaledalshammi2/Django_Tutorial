@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_questions'
@@ -33,9 +34,9 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except(KeyError, Choice.DoesNotExist):
         return render(request, 'polls/detail.html', {
-            'question': question, 
+            'question': question,
             'error_message': "You did not select a choice"
-            })
+        })
     else:
         selected_choice.votes += 1
         selected_choice.save()
