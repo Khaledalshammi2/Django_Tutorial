@@ -11,9 +11,6 @@ class Question(models.Model):
     def __str__(self) -> str:
         return self.question_text
 
-    def khaled(self):
-        return None
-
     @admin.display(
         boolean=True,
         ordering='pub_date',
